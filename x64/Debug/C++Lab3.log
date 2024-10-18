@@ -1,0 +1,12 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (C++Lab3.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Board.cpp
+C:\Users\Arasaka\source\repos\C++Lab3\Board.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Arasaka\source\repos\C++Lab3\Board.cpp(92,18): warning C4156: удаление массива без использования формы оператора "delete", предусмотренной для массива; подставлена предусмотренная форма оператора
+C:\Users\Arasaka\source\repos\C++Lab3\Board.cpp(92,18): warning C4154: удаление массива; выполнено преобразование к указателю
+  Main.cpp
+C:\Users\Arasaka\source\repos\C++Lab3\Main.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Arasaka\source\repos\C++Lab3\Main.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  Input.cpp
+C:\Users\Arasaka\source\repos\C++Lab3\Input.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+  Создание кода...
+  C++Lab3.vcxproj -> C:\Users\Arasaka\source\repos\C++Lab3\x64\Debug\C++Lab.exe
