@@ -36,26 +36,26 @@ bool Board::CheckWin(int lastX, int lastY, int playerOrder)
 {
     for (int i = 0; i < 3; i++) {
         if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
-            cout << "Player " << (board[i][0] == 'X' ? 1 : 2) << " wins (horizontal)!" << endl;
+            cout << "Player " << (board[i][0] == 'X' ? 1 : 2) << " wins!" << endl;
             return true;
         }
     }
 
     for (int j = 0; j < 3; j++) {
         if (board[0][j] == board[1][j] && board[1][j] == board[2][j] && board[0][j] != ' ') {
-            cout << "Player " << (board[0][j] == 'X' ? 1 : 2) << " wins (vertical)!" << endl;
+            cout << "Player " << (board[0][j] == 'X' ? 1 : 2) << " wins!" << endl;
             return true;
         }
     }
 
   
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
-        cout << "Player " << (board[0][0] == 'X' ? 1 : 2) << " wins (diagonal)!" << endl;
+        cout << "Player " << (board[0][0] == 'X' ? 1 : 2) << " wins!" << endl;
         return true;
     }
 
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
-        cout << "Player " << (board[0][2] == 'X' ? 1 : 2) << " wins (diagonal)!" << endl;
+        cout << "Player " << (board[0][2] == 'X' ? 1 : 2) << " wins !" << endl;
         return true;
     }
 
@@ -90,4 +90,65 @@ Board::Board()
 Board::~Board()
 {
     delete(board);
+
+}
+
+Board::Board(const Board& other) : x(other.x), y(other.y) {
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            board[i][j] = other.board[i][j];
+        }
+    }
+}
+
+Board::Board(int width, int height) : x(width), y(height) {
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            board[i][j] = ' ';
+        }
+    }
+}
+
+Board& Board::operator=(const Board& other) {
+    if (this == &other) return *this; 
+
+    x = other.x;
+    y = other.y;
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            board[i][j] = other.board[i][j];
+        }
+    }
+    return *this;
+}
+
+bool Board::operator==(const Board& other) const {
+    if (x != other.x || y != other.y) return false;
+    for (int i = 0; i < y; i++) {
+        for (int j = 0; j < x; j++) {
+            if (board[i][j] != other.board[i][j]) return false;
+        }
+    }
+    return true;
+}
+
+istream& operator>>(istream& is, Board& board) {
+    for (int i = 0; i < board.y; i++) {
+        for (int j = 0; j < board.x; j++) {
+            is >> board.board[i][j];
+        }
+    }
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Board& board) {
+    for (int i = 0; i < board.y; i++) {
+        for (int j = 0; j < board.x; j++) {
+            os << board.board[i][j];
+            if (j < board.x - 1) os << " | ";
+        }
+        os << endl;
+        if (i < board.y - 1) os << "---------" << endl;
+    }
+    return os;
 }
