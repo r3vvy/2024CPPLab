@@ -9,3 +9,5 @@ Clasa va conține un array bidimensional de tip char, care va ține cont de ampl
 3.Extinderea clasei Boarding prin adăugarea unei metode de verificare, care să determine dacă un jucător a câștigat sau dacă jocul s-a încheiat la egalitate după o mutare.
 4.Extinderea clasei Boarding prin adăugarea unei metode de validare a datelor de intrare, pentru a preveni introducerea unor date invalide (de exemplu: celula deja ocupată, date mai mari decât dimensiunea matricei sau mai mici decât 0).
 5.Apelarea metodelor de construire a tablei de joc și de primire a inputurilor în clasa Main.
+
+Pentru construirea proiectului folosiți visual studio, Run(ctrl+f5) sau Visual Studio Code prin lansarea Makefile 
