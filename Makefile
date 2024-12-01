@@ -1,20 +1,37 @@
 CXX = g++
-CXXFLAGS = -Wall -std=c++17
+CXXFLAGS = -Wall -std=c++17 -Iinclude
+LDFLAGS = -Llib
+LDLIBS = -lsfml-graphics -lsfml-window -lsfml-system  
 
-TARGET = Lab3
+SRC_DIR = src
+INCLUDE_DIR = include
+BIN_DIR = bin
+LIB_DIR = lib
 
-SRCS = Board.cpp Input.cpp C++Lab3.cpp
+SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(BIN_DIR)/%.o)
+STATIC_LIB = $(LIB_DIR)/libboard.a
+DYNAMIC_LIB = $(LIB_DIR)/libboard.so
+EXECUTABLE = $(BIN_DIR)/game
 
+all: $(EXECUTABLE)
 
-OBJS = $(SRCS:.cpp=.o)
+$(EXECUTABLE): $(STATIC_LIB) $(DYNAMIC_LIB) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS) -lboard
 
-all: $(TARGET)
+$(STATIC_LIB): $(BIN_DIR)/Board.o
+	ar rcs $@ $^
 
-$(TARGET): $(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS)
+$(DYNAMIC_LIB): $(BIN_DIR)/Board.o
+	$(CXX) -shared -fPIC -o $@ $^
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $<
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(BIN_DIR)
+	@mkdir -p $(LIB_DIR)
+	$(CXX) $(CXXFLAGS) -fPIC -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(BIN_DIR) $(LIB_DIR)
+
+test: all
+	./$(EXECUTABLE)

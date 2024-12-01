@@ -1,7 +1,3 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (C++Lab3.vcxproj).  Это может привести к ошибкам очистки и перестроения.
   Board.cpp
-  Input.cpp
-C:\Users\Arasaka\Documents\GitHub\CPPLab\2024CPPLab\Input.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-  Main.cpp
-  Создание кода...
   C++Lab3.vcxproj -> C:\Users\Arasaka\Documents\GitHub\CPPLab\2024CPPLab\x64\Debug\C++Lab.exe

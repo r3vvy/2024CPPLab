@@ -1,14 +1,18 @@
 #ifndef INPUT_H
 #define INPUT_H
-#include "Board.h"
+
+#include "GameData.h"
+#include <iostream>
+
 class Input
 {
 public:
-	Input(Board& _board);
-	~Input();
-	void StartInput();
+    Input();
+    ~Input();
+    void StartInput();
+
 private:
-    Board& board;
-	int playerOrder;
+    int playerOrder;
 };
+
 #endif
