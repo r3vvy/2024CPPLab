@@ -2,7 +2,6 @@
 #include <algorithm>
 #include <iostream>
 
-// Definim tabla de joc
 std::array<std::array<std::string, 3>, 3> GameData::board;
 
 void GameData::InitializeBoard() {
@@ -13,9 +12,6 @@ void GameData::InitializeBoard() {
 
 bool GameData::ValidateInput(int x, int y) {
     bool result = (x >= 0 && x < 3 && y >= 0 && y < 3 && board[y][x] == " ");
-    if (!result) {
-        std::cout << "Invalid Position\n";
-    }
     return result;
 }
 
